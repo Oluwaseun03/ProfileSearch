@@ -1,0 +1,94 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 60%;
+    margin: 2em auto;
+    align-items: center;
+  }
+  
+  .profileContainer {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    width: 100%;
+  }
+  
+  .profileSearchBar {
+    width: 100%;
+  }
+  
+  .profileSearchBar input {
+    width: 100%;
+    padding: 1em 10px;
+    border: 0;
+    border-radius: 5px;
+    outline: 0;
+    font-size: 1.1em;
+  }
+  
+  .profileSearchBar input:focus {
+    border: 2px solid rgba(255, 196, 99, 1);
+  }
+  
+  ::placeholder {
+    font-size: 1.1em;
+    font-style: italic;
+    opacity: 0.4;
+  }
+  
+  .profile {
+    display: flex;
+    gap: 1em;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .profile img {
+    width: 15%;
+    border-radius: 2px;
+  }
+  
+  .personID {
+    opacity: 0.6;
+  }
+  
+  .personName {
+    opacity: 0.8;
+  }
+  
+  .personProfile {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media screen and (max-width: 720px) {
+    .container {
+      width: 95%;
+      margin: 1em auto;
+    }
+    .profileContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+  
+    .profile {
+      padding: 5px;
+    }
+  
+    .profile img {
+      width: 12%;
+    }
+  
+    .profileSearchBar input {
+    font-size: 1em;
+    height: 40px;
+  }
+  
+    ::placeholder {
+    font-size: 0.8em;
+  }
+  }

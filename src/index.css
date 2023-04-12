@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(
+    to bottom,
+    #d94d89,
+    #e25284,
+    #eb597e,
+    #f26078,
+    #f86873,
+    #fc726d,
+    #fe7d68,
+    #ff8864,
+    #ff9761,
+    #ffa65f,
+    #ffb560,
+    #ffc463
+  );
+  font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+
+@media screen and (max-width: 720px) {
+  body {
+    font-size: 0.8em;
+  }
+  }
