@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 const App = () => {
   const [filteredProfile, setFilteredProfile] = new useState(profile);
-
+const [query, setQuery] = useState("")
   const profileLists = filteredProfile.map((person) => (
     <li key={person.id} className="profile">
       <img src={person.picture} alt={person.firstName + "'s picture"} />
@@ -18,14 +18,16 @@ const App = () => {
   ));
 
   const filterBySearch = (e) => {
-    const query = e.target.value;
+    // const query = e.target.value // create variable as state
+        if(query.length < 1 && e.target.value.trim().length < 1) return; //the input needs a validation that prevents the user from starting the search value with a space
+    setQuery(e.target.value)
     let updatedList = [...profile];
     updatedList = updatedList.filter((person) => {
       return (
-        person.firstName.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
-        person.lastName.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
-        person.id.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
-        person.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
+        person.firstName.toLowerCase().startsWith(query.toLowerCase()) || // remember that you are searching for a name, meaning the search value has to be the begiining of the name, startsWith is more effective than includes at this point
+        person.lastName.toLowerCase().startsWith(query.toLowerCase()) 
+        // person.id.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
+        // person.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
       );
     });
 
@@ -34,8 +36,9 @@ const App = () => {
 
   return (
     <div className="container">
+      {/* I see atleast three different components here, try seperating */}
       <form className="profileSearchBar">
-        <input placeholder="Search by name..." onChange={filterBySearch} />
+        <input placeholder="Search by name..." value={query} onChange={filterBySearch} />  {/* Your input should have a value attribute */}
       </form>
 
       <ul className="profileContainer">{profileLists}</ul>
