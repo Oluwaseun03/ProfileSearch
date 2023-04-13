@@ -36,7 +36,7 @@ const [query, setQuery] = useState("")
 
   return (
     <div className="container">
-      {/* I see atleast three different components here, try seperating */}
+      {/* I see atleast three different components here, try separating  */}
       <form className="profileSearchBar">
         <input placeholder="Search by name..." value={query} onChange={filterBySearch} />  {/* Your input should have a value attribute */}
       </form>
