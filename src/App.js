@@ -1,6 +1,6 @@
 import "./App.css";
 import profile from "./Profile";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const App = () => {
   const [filteredProfile, setFilteredProfile] = new useState(profile);
@@ -21,6 +21,9 @@ const [query, setQuery] = useState("")
     // const query = e.target.value // create variable as state
         if(query.length < 1 && e.target.value.trim().length < 1) return; //the input needs a validation that prevents the user from starting the search value with a space
     setQuery(e.target.value)
+  };
+
+  useEffect(()=>{
     let updatedList = [...profile];
     updatedList = updatedList.filter((person) => {
       return (
@@ -30,15 +33,13 @@ const [query, setQuery] = useState("")
         // person.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
       );
     });
-
     setFilteredProfile(updatedList);
-  };
-
+  }, [query])
   return (
     <div className="container">
       {/* I see atleast three different components here, try separating  */}
       <form className="profileSearchBar">
-        <input placeholder="Search by name..." value={query} onChange={filterBySearch} />  {/* Your input should have a value attribute */}
+        <input placeholder="Search by name..." value={query} onChange={(e) => filterBySearch(e)} />  {/* Your input should have a value attribute */}
       </form>
 
       <ul className="profileContainer">{profileLists}</ul>
