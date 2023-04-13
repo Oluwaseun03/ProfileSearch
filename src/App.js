@@ -29,8 +29,8 @@ const [query, setQuery] = useState("")
       return (
         person.firstName.toLowerCase().startsWith(query.toLowerCase()) || // remember that you are searching for a name, meaning the search value has to be the begiining of the name, startsWith is more effective than includes at this point
         person.lastName.toLowerCase().startsWith(query.toLowerCase()) 
-        // person.id.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
-        // person.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
+        // person.id.toLowerCase().indexOf(query.toLowerCase()) !== -1 || the assignment did not include id as a parameter
+        // person.title.toLowerCase().indexOf(query.toLowerCase()) !== -1 the assignment did not include title as a parameter
       );
     });
     setFilteredProfile(updatedList);
